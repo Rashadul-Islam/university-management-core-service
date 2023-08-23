@@ -90,7 +90,7 @@ const updateSemester = async (
   return result;
 };
 
-const delateSemester = async (id: string): Promise<AcademicSemester> => {
+const deleteSemester = async (id: string): Promise<AcademicSemester> => {
   const result = await prisma.academicSemester.delete({ where: { id } });
 
   return result;
@@ -101,5 +101,5 @@ export const AcademicSemesterService = {
   getAllSemesters,
   getSingleSemester,
   updateSemester,
-  delateSemester,
+  deleteSemester,
 };

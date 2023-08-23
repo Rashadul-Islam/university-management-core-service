@@ -60,8 +60,8 @@ const updateSemester = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const delateSemester = catchAsync(async (req: Request, res: Response) => {
-  const result = await AcademicSemesterService.delateSemester(req.params.id);
+const deleteSemester = catchAsync(async (req: Request, res: Response) => {
+  const result = await AcademicSemesterService.deleteSemester(req.params.id);
 
   sendResponse<AcademicSemester>(res, {
     statusCode: httpStatus.OK,
@@ -76,5 +76,5 @@ export const AcademicSemesterController = {
   getAllSemester,
   getSingleSemester,
   updateSemester,
-  delateSemester,
+  deleteSemester,
 };
