@@ -57,9 +57,7 @@ const getAllFaculty = async (
     orderBy:
       options.sortBy && options.sortOrder
         ? { [options.sortBy]: options.sortOrder }
-        : {
-            createdAt: 'desc',
-          },
+        : { createdAt: 'desc' },
   });
 
   const total = await prisma.academicFaculty.count({

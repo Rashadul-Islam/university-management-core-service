@@ -56,9 +56,7 @@ const getAllSemesters = async (
         ? {
             [options.sortBy]: options.sortOrder,
           }
-        : {
-            createdAt: 'desc',
-          },
+        : { createdAt: 'desc' },
   });
 
   const total = await prisma.academicSemester.count({ where: whereConditons });
