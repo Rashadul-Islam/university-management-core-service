@@ -83,6 +83,7 @@ const getAllStudent = async (
             createdAt: 'desc',
           },
   });
+
   const total = await prisma.student.count({
     where: whereConditions,
   });
