@@ -19,7 +19,7 @@ router.post(
 
 router.patch(
   '/:id',
-  validateRequest(OfferedCourseValidations.update),
+  validateRequest(OfferedCourseValidations.updateOfferedCourseZodSchema),
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   OfferedCourseController.updateOffredCourse
 );
