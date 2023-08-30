@@ -41,7 +41,7 @@ const moduleRoutes = [
   },
   {
     path: '/courses',
-    route: CourseRoutes,
+    routes: CourseRoutes,
   },
 ];
 
