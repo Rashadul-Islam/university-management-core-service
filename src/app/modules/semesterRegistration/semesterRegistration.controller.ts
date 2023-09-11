@@ -133,6 +133,35 @@ const withdrawFromCourse = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const confirmMyRegistration = catchAsync(
+  async (req: Request, res: Response) => {
+    const user = req?.user;
+    const result = await SemesterRegistrationService.confirmMyRegistration(
+      user?.userId
+    );
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Confirm your registration!',
+      data: result,
+    });
+  }
+);
+
+const getMyRegistration = catchAsync(async (req: Request, res: Response) => {
+  const user = req?.user;
+  const result = await SemesterRegistrationService.getMyRegistration(
+    user?.userId
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'My registration data fatched!',
+    data: result,
+  });
+});
+
 export const SemesterRegistrationController = {
   createSemestrRegistration,
   getAllSemestrRegistration,
@@ -142,4 +171,6 @@ export const SemesterRegistrationController = {
   startMyRegistration,
   enrollIntoCourse,
   withdrawFromCourse,
+  confirmMyRegistration,
+  getMyRegistration,
 };
