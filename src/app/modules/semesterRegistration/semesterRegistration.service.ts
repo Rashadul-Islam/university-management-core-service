@@ -16,7 +16,11 @@ import {
   semesterRegistrationRelationalFieldsMapper,
   semesterRegistrationSearchableFields,
 } from './semesterRegistration.constants';
-import { ISemesterRegistrationFilterRequest } from './semesterRegistration.interface';
+import {
+  IEnrollCoursePayload,
+  ISemesterRegistrationFilterRequest,
+} from './semesterRegistration.interface';
+import { studentSemesterRegistrationCourseService } from '../studentSemesterRegistrationCourse/studentSemesterRegistrationCourse.service';
 
 const createSemestrRegistration = async (
   data: SemesterRegistration
@@ -269,6 +273,30 @@ const startMyRegistration = async (
   };
 };
 
+const enrollIntoCourse = async (
+  authUserId: string,
+  payload: IEnrollCoursePayload
+): Promise<{
+  message: string;
+}> => {
+  return studentSemesterRegistrationCourseService.enrollIntoCourse(
+    authUserId,
+    payload
+  );
+};
+
+const withdrewFromCourse = async (
+  authUserId: string,
+  payload: IEnrollCoursePayload
+): Promise<{
+  message: string;
+}> => {
+  return studentSemesterRegistrationCourseService.withdrewFromCourse(
+    authUserId,
+    payload
+  );
+};
+
 export const SemesterRegistrationService = {
   createSemestrRegistration,
   getAllSemestrRegistration,
@@ -276,4 +304,6 @@ export const SemesterRegistrationService = {
   updateSemestrRegistration,
   deleteSemestrRegistration,
   startMyRegistration,
+  enrollIntoCourse,
+  withdrewFromCourse,
 };
