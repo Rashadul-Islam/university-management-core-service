@@ -68,10 +68,23 @@ const deleteStudent = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const myCourses = catchAsync(async (req: Request, res: Response) => {
+  const filter = pick(req.query, ['courseId', 'academicSemesterId']);
+  const result = await StudentService.myCourses(req?.user?.userId, filter);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Student Courses data fetched successfully',
+    data: result,
+  });
+});
+
 export const StudentController = {
   craeteStudent,
   getAllStudent,
   getSingleStudent,
   updateStudent,
   deleteStudent,
+  myCourses,
 };
