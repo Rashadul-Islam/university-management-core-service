@@ -31,6 +31,12 @@ router.post(
   SemesterRegistrationController.createSemestrRegistration
 );
 
+router.get(
+  '/get-my-semsester-courses',
+  auth(ENUM_USER_ROLE.STUDENT),
+  SemesterRegistrationController.getMySemesterRegCouses
+);
+
 router.patch(
   '/:id',
   validateRequest(
