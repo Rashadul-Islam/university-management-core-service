@@ -14,6 +14,18 @@ router.get(
   StudentController.myCourses
 );
 
+router.get(
+  '/my-course-schedules',
+  auth(ENUM_USER_ROLE.STUDENT),
+  StudentController.getMyCourseSchedules
+);
+
+router.get(
+  '/my-academic-info',
+  auth(ENUM_USER_ROLE.STUDENT),
+  StudentController.getMyAcademicInfo
+);
+
 router.get('/:id', StudentController.getSingleStudent);
 
 router.post(
