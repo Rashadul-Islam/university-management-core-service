@@ -5,7 +5,7 @@ import catchAsync from '../../../shared/catchAsync';
 import pick from '../../../shared/pick';
 import sendResponse from '../../../shared/sendResponse';
 import { AcademicSemesterFilterAbleFileds } from './academicSemester.constants';
-import { AcademicSemesterService } from './academicSemster.service';
+import { AcademicSemesterService } from './academicSemester.service';
 
 const createSemester = catchAsync(async (req: Request, res: Response) => {
   const result = await AcademicSemesterService.createSemester(req.body);

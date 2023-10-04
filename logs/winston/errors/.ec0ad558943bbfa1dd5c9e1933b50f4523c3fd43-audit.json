@@ -19,6 +19,31 @@
             "date": 1696233181620,
             "name": "C:\\Users\\Rashed\\Desktop\\Course_content\\university-management-core-service\\logs\\winston\\errors\\phu-2023-02-10-13-error.log",
             "hash": "3f0a9824d43fb2b56cd380d1fe2b6da6abdf0222f5f708b15f3e64c1755df923"
+        },
+        {
+            "date": 1696393915021,
+            "name": "C:\\Users\\Rashed\\Desktop\\Course_content\\university-management-core-service\\logs\\winston\\errors\\phu-2023-04-10-10-error.log",
+            "hash": "bdec91539f3e260c55279c6e47c0ec3dde6791fc3e1b5e58612ce6877458692b"
+        },
+        {
+            "date": 1696397697370,
+            "name": "C:\\Users\\Rashed\\Desktop\\Course_content\\university-management-core-service\\logs\\winston\\errors\\phu-2023-04-10-11-error.log",
+            "hash": "ea961c4b9c9735754139841c4d9842c18e628d4ef6db3c17221c53c3bdfd06f3"
+        },
+        {
+            "date": 1696399252238,
+            "name": "C:\\Users\\Rashed\\Desktop\\Course_content\\university-management-core-service\\logs\\winston\\errors\\phu-2023-04-10-12-error.log",
+            "hash": "d529afc39e8668c7487b30b635af3b1e96932edd4fbec06109cc8c3d85492394"
+        },
+        {
+            "date": 1696404515642,
+            "name": "C:\\Users\\Rashed\\Desktop\\Course_content\\university-management-core-service\\logs\\winston\\errors\\phu-2023-04-10-13-error.log",
+            "hash": "49efe6a2e99745efad50252dc960d00b35de37cd59bd5d3e2e5965751e5aa42f"
+        },
+        {
+            "date": 1696414975445,
+            "name": "C:\\Users\\Rashed\\Desktop\\Course_content\\university-management-core-service\\logs\\winston\\errors\\phu-2023-04-10-16-error.log",
+            "hash": "bcda8d3aada56a15771fb73475595d732dea16a6a5dfcde3022666b16a28b569"
         }
     ],
     "hashType": "sha256"
