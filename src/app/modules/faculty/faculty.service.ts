@@ -5,6 +5,8 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import prisma from '../../../shared/prisma';
 import {
+  EVENT_FACULTY_CREATED,
+  EVENT_FACULTY_UPDATED,
   facultyRelationalFields,
   facultyRelationalFieldsMapper,
   facultySearchableFields,
@@ -13,6 +15,7 @@ import {
   IFacultyFilterRequest,
   IFacultyMyCourseStudentsRequest,
 } from './faculty.interface';
+import { RedisClient } from '../../../shared/redis';
 
 const createFaculty = async (data: Faculty): Promise<Faculty> => {
   const result = await prisma.faculty.create({
@@ -22,6 +25,10 @@ const createFaculty = async (data: Faculty): Promise<Faculty> => {
       academicDepartment: true,
     },
   });
+
+  if (result) {
+    await RedisClient.publish(EVENT_FACULTY_CREATED, JSON.stringify(result));
+  }
 
   return result;
 };
@@ -125,6 +132,10 @@ const updateFaculty = async (
       academicDepartment: true,
     },
   });
+
+  if (result) {
+    await RedisClient.publish(EVENT_FACULTY_UPDATED, JSON.stringify(result));
+  }
 
   return result;
 };

@@ -5,12 +5,15 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import prisma from '../../../shared/prisma';
 import {
+  EVENT_STUDENT_CREATED,
+  EVENT_STUDENT_UPDATED,
   studentRelationalFields,
   studentRelationalFieldsMapper,
   studentSearchableFields,
 } from './student.constants';
 import { IStudentFilterRequest } from './student.interface';
 import { StudentUtils } from './StudentUtils';
+import { RedisClient } from '../../../shared/redis';
 
 const craeteStudent = async (data: Student): Promise<Student> => {
   const result = await prisma.student.create({
@@ -21,6 +24,10 @@ const craeteStudent = async (data: Student): Promise<Student> => {
       academicSemester: true,
     },
   });
+
+  if (result) {
+    await RedisClient.publish(EVENT_STUDENT_CREATED, JSON.stringify(result));
+  }
 
   return result;
 };
@@ -127,6 +134,10 @@ const updateStudent = async (
       academicFaculty: true,
     },
   });
+
+  if (result) {
+    await RedisClient.publish(EVENT_STUDENT_UPDATED, JSON.stringify(result));
+  }
 
   return result;
 };
